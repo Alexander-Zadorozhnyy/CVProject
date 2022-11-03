@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- slider_area_start -->
+<div class="slider_area">
+    <div class="single_slider  d-flex align-items-center slider_bg_1">
+        <div class="container">
+            <div class="row align-items-center position-relative">
+                <div class="col-lg-9">
+                    <div class="slider_text">
+                        <h3>All reviews about my works!</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--================Blog Area =================-->
+<section class="blog_area single-post-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 posts-list">
+                {% if best != None %}
+                    <div class="blog-author">
+                        <h2>Best review</h2>
+                        <div class="media align-items-center">
+                            <img src="{{ url_for('static', filename=best.photo) }}" alt="">
+                            <div class="media-body">
+                                <h4>{{  best.name }}, {{ best.position }}</h4>
+                                <p>{{  best.review }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+                <div class="comments-area">
+                    <h4>{{ count }} other comments</h4>
+                    {% for x in range(count) %}
+                        <div class="comment-list">
+                            <div class="single-comment justify-content-between d-flex">
+                                <div class="user justify-content-between d-flex">
+                                    <div class="thumb">
+                                        <img src="{{ url_for('static', filename=reviews[x].photo)}}" alt="">
+                                    </div>
+                                    <div class="desc">
+                                        <p class="comment">
+                                            &ldquo;{{ reviews[x].review }}&rdquo;
+                                        </p>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="d-flex align-items-center">
+                                                <h5> {{ reviews[x].name }} </h5>
+                                                <p class="date">{{ reviews[x].position }}</p>
+                                                <p class="date">{{ reviews[x].date }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="comment-form">
+                    <div class="form-group">
+                            <a class="button button-contactForm btn_1 boxed-btn" href="{{ url_for('create_review') }}">LEAVE A REPLY
+                            </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="blog_right_sidebar">
+                    <aside class="single_sidebar_widget search_widget">
+                        <form action="{{ url_for('all_reviews')}}" method="post" id="searchForm">
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder='Search Keyword'
+                                           onfocus="this.placeholder = ''"
+                                           onblur="this.placeholder = 'Search Keyword'" name="res">
+                                    <div class="input-group-append">
+                                        <button class="btn" type="button"><i class="ti-search"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
+                                    type="submit">Search
+                            </button>
+                        </form>
+                    </aside>
+                    <aside class="single_sidebar_widget popular_post_widget">
+                        <h3 class="widget_title">Recent Project</h3>
+                        {% for x in projects %}
+                            <div class="media post_item">
+                                <img src="{{ url_for('static', filename='src/project_icon.png')}}" alt="post">
+                                <div class="media-body">
+                                    <a href="{{ url_for('projects_details', id=x.id)}}">
+                                        <h3>{{x.name}}</h3>
+                                    </a>
+                                    <p>{{ x.date }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================ Blog Area end =================-->
+{% endblock %}

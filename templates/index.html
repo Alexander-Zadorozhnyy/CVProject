@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block imports %}
+
+<!-- <link rel="manifest" href="site.webmanifest">
+<link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.png')}}">
+ Place favicon.ico in the root directory
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/slick.css')}}">
+<link rel="stylesheet" href="css/responsive.css"> -->
+
+{% endblock %}
+
+{% block content %}
+<!-- slider_area_start -->
+
+{% include "about.html" %}
+
+<!-- service_area start  -->
+<div class="service_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="section_title mb-50">
+                    <h3>My Services</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="single_service text-center">
+                    <div class="icon">
+                        <img src="static/img/svg_icon/1.svg" alt="">
+                    </div>
+                    <h3>
+                        Machine Learning
+                    </h3>
+                    <p>Completed MIPT's course about Deep Learning and did a research project on this topic</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single_service text-center">
+                    <div class="icon">
+                        <img src="static/img/svg_icon/2.svg" alt="">
+                    </div>
+                    <h3>
+                        Functional Programming
+                    </h3>
+                    <p>Knew the basics of F# and Haskell. On the latter, I implemented the F#, including its interpreter, parser and AST.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single_service text-center">
+                    <div class="icon">
+                        <img src="static/img/svg_icon/3.svg" alt="">
+                    </div>
+                    <h3>
+                        Web Development
+                    </h3>
+                    <p>Realised some shop's sites with connection to the Telegram bot and create 2-4 site similar to this</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- service_area end  -->
+
+<!-- gallery_area end  -->
+{% include "testimonial_area.html" %}
+
+{% endblock %}

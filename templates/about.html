@@ -1,0 +1,92 @@
+<div class="slider_area">
+    <div class="single_slider  d-flex align-items-center slider_bg_1">
+        <div class="container">
+            <div class="row align-items-center position-relative">
+                <div class="col-lg-9">
+                    <div class="slider_text">
+                        <h3>Hi there, I am Alex <br>
+                            <span>Software Engineer</span>
+                        </h3>
+                        <a class="boxed-btn3-line" href="{{ url_for('projects') }}">View Works</a>
+                    </div>
+                </div>
+                <div class="my_img d-none d-lg-block">
+                    <!-- <img src="static/img/about/my_img.png" alt="">  TODO: change photo -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- slider_area_end -->
+
+<div class="download_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-10">
+                <div class="download_text">
+                    <h3>I’m a Zadorozhnyy Alexander Sergeevich, 19 years old.</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <div class="download_left">
+                    <p>I was born in the city of Orsk, Orenburg region, but currently I live in St. Petersburg.
+                    </p>
+                    <p>I am sophomore of the Saint Petersburg State University, Mathematics and Mechanics, Software Engineering</p>
+                    <p>I take a great interest in programming, creation of neural networks, data analysis.<br>
+                    I also like to play sports - for example, I go to the gym and play basketball in my free time.</p>
+                    <a href="{{ url_for('static', filename='src/cv.docx')}}" download="" class="boxed-btn3-line">Download CV</a>
+                </div>
+            </div>
+            <div class="col-lg-5 offset-lg-1 col-md-6">
+                <div class="progress_skills">
+                    <div class="single_progress">
+                        <div class="label d-flex justify-content-between">
+                            <span>Python</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar " role="progressbar" style="width: 90%" aria-valuenow="25"
+                                 aria-valuemin="0" aria-valuemax="100">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single_progress">
+                        <div class="label d-flex justify-content-between">
+                            <span>HTML/CSS</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar " role="progressbar" style="width: 70%" aria-valuenow="25"
+                                 aria-valuemin="0" aria-valuemax="100">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single_progress">
+                        <div class="label d-flex justify-content-between">
+                            <span>Machine Learning</span>
+                            <span>45%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 45%" aria-valuenow="25"
+                                 aria-valuemin="0" aria-valuemax="100">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single_progress">
+                        <div class="label d-flex justify-content-between">
+                            <span>Functional Programming - Haskell</span>
+                            <span>30%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 30%" aria-valuenow="25"
+                                 aria-valuemin="0" aria-valuemax="100">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

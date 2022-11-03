@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block imports %} {% endblock %}
+
+{% block content %}
+<!-- bradcam_area  -->
+<div class="bradcam_area bradcam_area2 bradcam_bg_1">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="bradcam_text text-center">
+                    <h3>{{ project.name }}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ bradcam_area  -->
+
+<div class="projects_details_area">
+    <div class="container pos_up">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="banner_img">
+                    <img src="{{ url_for('static', filename=project.photo)}}" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="details_info">
+            <div class="row justify-content-center">
+                <div class="col-xl-6 col-md-8 ">
+                    <div class="single_details">
+                        <h3>Overview</h3>
+                        <p>{{ project.overview }}</p>
+                    </div>
+                    <div class="single_details">
+                        <h3>Problem</h3>
+                        <p>{{ project.problem }}</p>
+                    </div>
+                    <div class="single_details">
+                        <h3>Solution</h3>
+                        <p>{{ project.solution }}</p>
+                    </div>
+                    <div class="button_link">
+                        <a href="{{ project.link }}" class="boxed-btn3-line">Project Link</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

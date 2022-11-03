@@ -1,0 +1,40 @@
+<!-- testimonial_area  -->
+<div class="testimonial_area ">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="section_title">
+                    <h3>What Clients say</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="testmonial_active owl-carousel">
+                    {% for x in reviews %}
+                    <div class="single_carousel">
+                        <div class="row">
+                            <div class="col-xl-9 col-md-9">
+                                <div class="single_testmonial">
+                                    <p>{{ x.review }}</p>
+                                    <div class="testmonial_author">
+                                        <div class="thumb">
+                                            <img class="tm-people" src="{{ url_for('static', filename=x.photo)}}" alt="">
+                                        </div>
+                                        <div class="author_name">
+                                            <h3>{{ x.name }}</h3>
+                                            <span>{{ x.position }}</span>
+                                            <span>{{ x.date }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /testimonial_area  -->

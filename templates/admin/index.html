@@ -1,0 +1,36 @@
+{% extends 'admin/master.html' %}
+
+{% block body %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+<p>On this page you can add some photo to project</p>
+<form class="form-contact contact_form center" action="{{ url_for('photo') }}?f=add" method="post"
+      id="addForm"
+      enctype="multipart/form-data">
+
+    <div class="col-12">
+        <div class="form-group">
+            <input name="photo" id="photo" type="file" accept="image/*">
+        </div>
+    </div>
+
+    <div class="form-group mt-3">
+        <button type="submit" class="button button-contactForm btn_4 boxed-btn">ADD</button>
+    </div>
+</form>
+
+<p>Also you can delete unnecessary images - but do it before deleting element, because u need to know path</p>
+<form class="form-contact contact_form center" action="{{ url_for('photo') }}?f=del" method="post"
+      id="delForm">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <input class="form-control" name="del" id="del" type="text"
+                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your position'"
+                   placeholder='Enter your position'>
+        </div>
+    </div>
+    <div class="form-group mt-3">
+        <button type="submit" class="button button-contactForm btn_4 boxed-btn">DELETE</button>
+    </div>
+</form>
+
+{% endblock %}
