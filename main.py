@@ -70,7 +70,7 @@ admin.add_view(Controller(Achievement, db.session))
 def photo():
     if request.args.get("f") == "add":
         file = request.files["photo"]
-        path = url_for('static', filename=f'saved_images/{str(secure_filename(file.filename))}')
+        path = os.getcwd() + url_for('static', filename=f'saved_images/{str(secure_filename(file.filename))}')
         img = Image.open(file.stream)
         img.save(path)
     if request.args.get("f") == "del":

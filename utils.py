@@ -1,10 +1,12 @@
+import os
+
 from PIL import Image, ImageOps
 from flask import url_for
 
 
 def corvert_image(image, mimetype):
     img = Image.open(image.stream)
-    mask = Image.open(url_for('static', filename="src/mask.png")).convert('L')
+    mask = Image.open(os.getcwd() + url_for('static', filename="src/mask.png")).convert('L')
 
     output = ImageOps.fit(img, mask.size, centering=(0.5, 0.5))
 
