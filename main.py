@@ -70,13 +70,13 @@ admin.add_view(Controller(Achievement, db.session))
 def photo():
     if request.args.get("f") == "add":
         file = request.files["photo"]
-        path = os.getcwd() + url_for('static', filename=f'saved_images/{str(secure_filename(file.filename))}')
+        path = url_for('static', filename=f'saved_images/{str(secure_filename(file.filename))}')
         img = Image.open(file.stream)
         img.save(path)
     if request.args.get("f") == "del":
         try:
             path = request.form.getlist('del')
-            path_to_image = os.getcwd() + url_for('static', filename=f'saved_images/{path[0]}')
+            path_to_image = url_for('static', filename=f'saved_images/{path[0]}')
             print(path_to_image)
             os.remove(path_to_image)
         except:
@@ -216,7 +216,7 @@ def create_review():
     if request.method == 'POST':
         try:
             file = request.files["photo"]
-            path = f'saved_images/{str(secure_filename(file.filename))}'
+            path = url_for('static', filename=f'saved_images/{str(secure_filename(file.filename))}')
             converted = corvert_image(file, file.mimetype)
             converted.save(path)
 
