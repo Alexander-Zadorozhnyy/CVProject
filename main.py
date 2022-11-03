@@ -218,7 +218,7 @@ def create_review():
             file = request.files["photo"]
             path = url_for('static', filename=f'saved_images/{str(secure_filename(file.filename))}')
             converted = corvert_image(file, file.mimetype)
-            converted.save(os.getcwd() + path)
+            converted.save(path)
 
             new_review = Review(name=request.form["name"],
                                 position=request.form["position"],
