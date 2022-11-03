@@ -216,7 +216,7 @@ def create_review():
     if request.method == 'POST':
         try:
             file = request.files["photo"]
-            path = url_for('static', filename=f'saved_images/{str(secure_filename(file.filename))}')
+            path = f'saved_images/{str(secure_filename(file.filename))}'
             converted = corvert_image(file, file.mimetype)
             converted.save(path)
 
