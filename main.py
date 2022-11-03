@@ -77,9 +77,10 @@ def photo():
         try:
             path = request.form.getlist('del')
             path_to_image = os.getcwd() + url_for('static', filename=f'saved_images/{path[0]}')
+            print(path_to_image)
             os.remove(path_to_image)
         except:
-            pass
+            flash('something went wrong!', category='error')
     return redirect('/admin')
 
 
@@ -217,7 +218,7 @@ def create_review():
             file = request.files["photo"]
             path = url_for('static', filename=f'saved_images/{str(secure_filename(file.filename))}')
             converted = corvert_image(file, file.mimetype)
-            converted.save(path)
+            converted.save(os.getcwd() + path)
 
             new_review = Review(name=request.form["name"],
                                 position=request.form["position"],
