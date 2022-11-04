@@ -33,6 +33,7 @@ app.config['SQLALCHEMY_BINDS'] = {
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SECRET_KEY'] = '34567890oihgfcvbjktrtyuiop'
 app.config['SESSION_COOKIE_NAME'] = 'EVM'
+app.config['TIMEZONE'] = 'Europe/Paris'
 
 # set optional bootswatch theme
 app.config['FLASK_ADMIN_SWATCH'] = 'cerulean'
@@ -157,7 +158,9 @@ def achievement():
         try:
             achievements = Achievement.query.filter(or_(
                 func.lower(Achievement.name).contains(request.form["res"]),
-                func.lower(Achievement.categories).contains(request.form["res"]))).all()
+                func.lower(Achievement.categories).contains(request.form["res"]))).order_by(-Achievement.date_year,
+                                                                                            -Achievement.date_month,
+                                                                                            -Achievement.date_day).all()
             return render_template('achievement.html', title="Achievement", posts=achievements)
         except SQLAlchemyError as e:
             db.session.rollback()
@@ -168,7 +171,8 @@ def achievement():
             return redirect(url_for('/achievement/all'))
 
     else:
-        achievements = Achievement.query.all()
+        achievements = Achievement.query.order_by(-Achievement.date_year, -Achievement.date_month,
+                                                  -Achievement.date_day).all()
 
     return render_template('achievement.html',
                            title="Achievement",
@@ -226,7 +230,7 @@ def create_review():
                                 review=request.form["review"],
                                 photo=name
                                 )
-            
+
             db.session.add(new_review)
             db.session.commit()
         except SQLAlchemyError as e:
