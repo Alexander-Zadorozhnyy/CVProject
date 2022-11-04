@@ -226,7 +226,7 @@ def create_review():
                                 review=request.form["review"],
                                 photo=name
                                 )
-
+            
             db.session.add(new_review)
             db.session.commit()
         except SQLAlchemyError as e:
