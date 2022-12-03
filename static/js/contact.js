@@ -13,12 +13,12 @@ $(document).ready(function(){
         $('#contactForm').validate({
             rules: {
                 name: {
-                    required: true,
-                    minlength: 2
+                    required: false,
+                    minlength: 0
                 },
                 subject: {
-                    required: true,
-                    minlength: 4
+                    required: false,
+                    minlength: 0
                 },
                 number: {
                     required: true,
@@ -30,18 +30,18 @@ $(document).ready(function(){
                 },
                 message: {
                     required: true,
-                    minlength: 20
+                    minlength: 0
                 },
                 position: {
-                    required: true,
-                    minlength: 2
+                    required: false,
+                    minlength: 0
                 },
                 photo: {
-                    required: true,
+                    required: false,
                 },
                 review: {
-                    required: true,
-                    minlength: 20
+                    required: false,
+                    minlength: 0
                 },
             },
             messages: {

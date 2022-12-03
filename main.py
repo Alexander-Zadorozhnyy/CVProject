@@ -220,18 +220,20 @@ def create_review():
     if request.method == 'POST':
         try:
             file = request.files["photo"]
-            filename = '.'.join(str(secure_filename(file.filename)).split('.')[:-1] + ['png'])
-            name = f'saved_images/{filename}'
-            print(name)
-            path = url_for('static', filename=f'saved_images/{filename}')
-            print(path)
-            converted = corvert_image(file)
-            converted.save(os.getcwd() + path)
+            name = f'src/default_image.png'
 
-            new_review = Review(name=request.form["name"],
-                                position=request.form["position"],
-                                review=request.form["review"],
-                                photo=name
+            if file.filename != '':
+                filename = '.'.join(str(secure_filename(file.filename)).split('.')[:-1] + ['png'])
+                name = f'saved_images/{filename}'
+                path = url_for('static', filename=f'saved_images/{filename}')
+                converted = corvert_image(file)
+                converted.save(os.getcwd() + path)
+
+            new_review = Review(name=request.form["name"] if request.form["name"] != '' else 'Anonim',
+                                position=request.form["position"] if request.form["position"] != '' else 'Hidden',
+                                review=request.form["review"] if request.form["review"] != '' else 'Good job!',
+                                photo=name,
+                                visible=True
                                 )
 
             db.session.add(new_review)
