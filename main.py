@@ -246,7 +246,7 @@ def create_review():
             flash(error, category='error')
             return redirect(url_for('index'))
 
-        flash("Thanks for your review. It will be added soon.", category='success')
+        flash("Thanks for your review. It will be added soon. Then you can check it in section: Review->All", category='success')
         return redirect(url_for('index'))
     else:
         return render_template('create_review.html', title="Create review")
